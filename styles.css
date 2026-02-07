@@ -179,15 +179,15 @@ section { padding: 5.5rem 0 }
 }
 
 .nav-inner {
-    background: rgba(255,253,208,.95);
+    background: rgba(58,51,48,.95);
     backdrop-filter: blur(20px);
-    border: 1.5px solid rgba(255,255,255,.4);
+    border: 1.5px solid rgba(255,255,255,.2);
     border-radius: var(--radius-pill);
     padding: .85rem 1.8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 8px 32px rgba(60,50,48,.12), 0 0 0 1px rgba(255,255,255,.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,.15), 0 0 0 1px rgba(255,255,255,.1);
     min-height: 60px;
     gap: 2rem;
 }
@@ -196,7 +196,7 @@ section { padding: 5.5rem 0 }
     font-family: var(--ff-heading);
     font-size: 1.4rem;
     font-weight: 500;
-    color: var(--dark);
+    color: #fff;
     transition: var(--transition);
     display: flex;
     align-items: center;
@@ -214,7 +214,7 @@ section { padding: 5.5rem 0 }
 .nav-links a {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--dark);
+    color: #fff;
     transition: var(--transition);
     position: relative;
     padding: .5rem .75rem;
@@ -228,23 +228,23 @@ section { padding: 5.5rem 0 }
     position: absolute;
     left: .75rem; right: .75rem; bottom: .25rem;
     height: 2px;
-    background: var(--peach-deep);
+    background: var(--peach);
     transform: scaleX(0);
     transition: var(--transition);
     border-radius: 2px;
 }
 .nav-links a:hover {
-    color: var(--dark);
-    background: rgba(255,218,185,.2);
+    color: #fff;
+    background: rgba(255,255,255,.1);
 }
 .nav-links a:hover::after { transform: scaleX(1) }
 .nav-links a.active {
-    background: rgba(255,218,185,.25);
-    color: var(--dark);
+    background: rgba(255,255,255,.15);
+    color: #fff;
 }
 .nav-links a.active::after { transform: scaleX(1) }
 .nav-links a:focus {
-    outline: 2px solid var(--peach-deep);
+    outline: 2px solid var(--peach);
     outline-offset: 2px;
 }
 
@@ -278,13 +278,13 @@ section { padding: 5.5rem 0 }
     position: relative;
 }
 .nav-toggle:focus {
-    outline: 2px solid var(--peach-deep);
+    outline: 2px solid var(--peach);
     outline-offset: 2px;
 }
 .nav-toggle span {
     display: block;
     width: 26px; height: 3px;
-    background: var(--dark);
+    background: #fff;
     margin: 5px auto;
     border-radius: 3px;
     transition: var(--transition);
@@ -1133,14 +1133,14 @@ section { padding: 5.5rem 0 }
         top: 5rem; right: 1rem;
         width: 280px;
         max-width: calc(100vw - 2rem);
-        background: rgba(255,253,208,.98);
+        background: rgba(58,51,48,.98);
         backdrop-filter: blur(20px);
-        border: 1.5px solid rgba(255,255,255,.4);
+        border: 1.5px solid rgba(255,255,255,.2);
         border-radius: var(--radius-lg);
         flex-direction: column;
         padding: 1.5rem;
         gap: .5rem;
-        box-shadow: 0 8px 32px rgba(60,50,48,.15);
+        box-shadow: 0 8px 32px rgba(0,0,0,.2);
         transition: var(--transition);
         transform: translateX(100%);
         opacity: 0;
@@ -1150,7 +1150,7 @@ section { padding: 5.5rem 0 }
         opacity: 1;
     }
     .nav-links a { 
-        color: var(--dark) !important; 
+        color: #fff !important; 
         font-size: 1.1rem; 
         padding: .75rem 1rem;
         width: 100%;
