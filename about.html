@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Heather · Heather Black</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============ NAV ============ -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">✦ Heather Black</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="offerings.html">Offerings</a></li>
+                <li><a href="training.html">Reiki Training</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact ✉</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============ PAGE HERO ============ -->
+    <header class="page-hero page-hero--peach">
+        <div class="hero-grain"></div>
+        <div class="page-hero-content">
+            <span class="hero-tag">My Journey</span>
+            <h1 class="page-hero-title">About Heather</h1>
+            <p class="page-hero-sub">Reiki Master Teacher · Psychic Medium · Yoga Teacher</p>
+        </div>
+    </header>
+
+    <!-- ============ ABOUT CONTENT ============ -->
+    <section class="about">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-photo-col">
+                    <div class="about-photo">
+                        <div class="photo-placeholder">
+                            <span>❋</span>
+                            <p>Heather Black</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text-col">
+                    <p class="about-intro">Heather Black is a Reiki Master Teacher, Psychic Medium, and Yoga Teacher.</p>
+
+                    <div class="about-timeline">
+                        <div class="about-era reveal-item">
+                            <span class="era-badge">🏢 The Bridge</span>
+                            <p>Heather was a finance manager with a Fortune 500 company and earned her <strong>MBA from Fairleigh Dickinson University</strong>. She brings grounded, real-world perspective to her spiritual practice.</p>
+                        </div>
+
+                        <div class="about-era reveal-item">
+                            <span class="era-badge">✨ The Awakening</span>
+                            <p>In 2005, she attended a retreat at <strong>Ananda Ashram</strong> in Monroe, NY, where she first encountered her yoga teacher, <strong>Sri Dharma Mittra</strong>. After attending his meditation, she knew this was her path.</p>
+                            <p>The following year, she received certification through <strong>The Dharma Yoga Center</strong> in New York and the <strong>Yoga Alliance</strong>. She's been teaching ever since. She did extensive continuing education with <strong>Judith Hansen Lasater</strong>.</p>
+                        </div>
+
+                        <div class="about-era reveal-item">
+                            <span class="era-badge">🌿 The Healing Path</span>
+                            <p>In 2018, she took her first "energy" class and realized it was Reiki. She was attuned to first and second degree Reiki that year, and in 2019 to advanced Reiki.</p>
+                            <p>In January 2020, she received the attunement of Master in the <strong>Usui/Tibetan System of Natural Healing</strong>. Since then, she has become a Reiki Master Teacher.</p>
+                        </div>
+
+                        <div class="about-era reveal-item">
+                            <span class="era-badge">🔮 The Gift</span>
+                            <p>Reiki reawakened her psychic abilities. To refine those gifts, she trained for <strong>2½ years with Rev. Simon Caudullo</strong>, a <strong>Lily Dale Registered Medium</strong>.</p>
+                            <p>The goal of her psychic medium sessions is to connect to your loved ones in spirit — to bring <strong>comfort, closure, and healing messages</strong>. Spirit is asked to bring evidence to prove that they are still with us after leaving the physical body.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:2rem">
+                        <a href="offerings.html" class="btn btn-peach btn-grain">View My Offerings →</a>
+                        <a href="contact.html" class="btn btn-outline" style="margin-left:.5rem">Get in Touch →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo">✦ Heather Black</span>
+                    <p>Reiki Master · Psychic Medium · Yoga Teacher</p>
+                </div>
+                <nav class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="offerings.html">Offerings</a>
+                    <a href="training.html">Reiki Training</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <p class="footer-copy">&copy; 2026 Heather Black · All rights reserved · <a href="mailto:yogihkb@gmail.com">yogihkb@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => { links.classList.toggle('open'); toggle.classList.toggle('open'); });
+        document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => { links.classList.remove('open'); toggle.classList.remove('open'); }));
+        const reveal = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); reveal.unobserve(entry.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal-item').forEach(el => reveal.observe(el));
+    </script>
+</body>
+</html>
