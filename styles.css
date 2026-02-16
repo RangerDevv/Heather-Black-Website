@@ -48,9 +48,11 @@ body {
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
-img { max-width:100%; display:block }
+img { max-width:100%; height:auto; display:block }
 a { text-decoration:none; color:inherit }
 .container { max-width:1140px; margin:0 auto; padding:0 1.5rem }
 .text-center { text-align:center }
@@ -58,16 +60,17 @@ a { text-decoration:none; color:inherit }
 /* -------- SCROLL REVEAL -------- */
 .reveal-item {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .7s ease, transform .7s ease;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+    will-change: opacity, transform;
 }
 .reveal-item.revealed {
     opacity: 1;
     transform: translateY(0);
 }
-.reveal-item:nth-child(2) { transition-delay: .1s }
-.reveal-item:nth-child(3) { transition-delay: .2s }
-.reveal-item:nth-child(4) { transition-delay: .3s }
+.reveal-item:nth-child(2) { transition-delay: .08s }
+.reveal-item:nth-child(3) { transition-delay: .16s }
+.reveal-item:nth-child(4) { transition-delay: .24s }
 
 /* -------- SECTION HELPERS -------- */
 section { padding: 5.5rem 0 }
@@ -551,6 +554,7 @@ section { padding: 5.5rem 0 }
     text-align: center;
     color: #fff;
     overflow: hidden;
+    min-height: 220px;
 }
 .page-hero--periwinkle { background: linear-gradient(155deg, #7b72b8 0%, #a499d6 40%, var(--periwinkle) 100%) }
 .page-hero--sage       { background: linear-gradient(155deg, #7b72b8 0%, var(--sage) 50%, var(--sage-deep) 100%) }
@@ -702,6 +706,16 @@ section { padding: 5.5rem 0 }
 }
 .photo-placeholder-sm span { font-size: 3rem; margin-bottom: .2rem }
 .photo-placeholder-sm p { font-family: var(--ff-heading); font-size: 1rem; letter-spacing: 2px }
+
+/* Image stability */
+.about-preview-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    background: var(--cream-alt);
+}
 
 .about-preview-text p {
     color: var(--dark-soft);
@@ -1170,7 +1184,9 @@ section { padding: 5.5rem 0 }
 }
 
 @media (max-width: 768px) {
-    section { padding: 4rem 0 }
+    html { font-size: 17px }
+    section { padding: 3.5rem 0 }
+    .container { padding: 0 1.2rem }
 
     /* Navbar mobile adjustments */
     .navbar {
@@ -1265,15 +1281,25 @@ section { padding: 5.5rem 0 }
     }
 
     /* Hero */
-    .hero { padding-top: 7rem }
-    .hero-roles { flex-direction: column; align-items: center; gap: .5rem }
-    .portals { gap: 1.5rem }
-    .portal-circle { width: 80px; height: 80px }
-    .portal-emoji { font-size: 1.7rem }
+    .hero { padding-top: 6rem; padding-bottom: 2.5rem; min-height: 100svh }
+    .hero-content { margin-bottom: 2rem }
+    .hero-roles { flex-direction: column; align-items: center; gap: .4rem }
+    .role-chip { font-size: .85rem; padding: .35rem .9rem }
+    .portals { gap: 1.2rem }
+    .portal-circle { width: 76px; height: 76px }
+    .portal-emoji { font-size: 1.6rem }
+    .portal-label { font-size: .78rem }
     .hero-lotus-wrap { width: clamp(220px, 60vw, 350px); height: clamp(220px, 60vw, 350px) }
 
     /* Page Hero */
-    .page-hero { padding: 7rem 1.5rem 3rem }
+    .page-hero { padding: 6.5rem 1.2rem 2.5rem; min-height: 180px }
+    .page-hero-title { font-size: clamp(1.8rem, 7vw, 2.8rem) }
+    .page-hero-sub { font-size: .95rem }
+
+    /* Section text */
+    .section-heading { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: .75rem }
+    .section-intro { font-size: 1rem; margin-bottom: 2rem }
+    .section-eyebrow { font-size: .78rem; letter-spacing: 2.5px }
 
     /* Grids → single col */
     .preview-grid,
@@ -1281,31 +1307,93 @@ section { padding: 5.5rem 0 }
     .about-preview-layout,
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
+    /* Preview cards */
+    .preview-card { padding: 1.6rem 1.4rem }
+    .preview-card h3 { font-size: 1.2rem }
+    .preview-card p { font-size: .92rem }
+    .preview-icon { width: 56px; height: 56px; font-size: 1.5rem; margin-bottom: 1rem }
+
+    /* About */
     .about-photo { position: static }
+    .about-preview-img { aspect-ratio: 4 / 3 }
     .photo-placeholder { aspect-ratio: 16/10 }
     .photo-placeholder-sm { aspect-ratio: 16/10 }
+    .about-intro { font-size: 1.05rem }
+    .about-era { padding: 1.2rem 1.3rem }
+    .about-era p { font-size: .9rem }
+    .about-text-col .btn { font-size: .9rem; padding: .8rem 1.6rem }
 
+    /* Contact */
+    .contact-card { padding: 1.2rem }
+    .contact-card h4 { font-size: .95rem }
+    .contact-card p { font-size: .88rem }
     .form-row { grid-template-columns: 1fr }
     .contact-form-wrap { padding: 1.5rem }
+    .contact-form-wrap h3 { font-size: 1.25rem }
 
-    .detail-header { padding: 1.5rem }
-    .detail-body { padding: 1.5rem }
+    /* Offerings detail */
+    .detail-header { padding: 1.3rem 1.4rem }
+    .detail-header h2 { font-size: 1.35rem }
+    .detail-body { padding: 1.3rem 1.4rem 1.6rem }
+    .detail-body p { font-size: .92rem }
+    .detail-block { border-radius: var(--radius) }
 
+    /* Pricing pills */
+    .pill { padding: .55rem .85rem }
+    .pill-label { font-size: .88rem }
+    .pill-price { font-size: 1rem }
+
+    /* Journey / Training */
     .journey-map { padding-left: 3rem }
     .step-marker { left: -3rem }
     .step-num { width: 2rem; height: 2rem; font-size: .9rem }
     .journey-map::before { left: .9rem }
+    .step-card { padding: 1.2rem 1.3rem }
+    .step-header h3 { font-size: 1.1rem }
+    .step-price { font-size: 1.05rem }
+    .step-card p { font-size: .88rem }
 
-    .cta-locations { flex-direction: column; gap: .3rem }
+    /* Buttons */
+    .btn { padding: .8rem 1.8rem; font-size: .92rem }
+    .btn-lg { padding: .85rem 2rem; font-size: .92rem }
+    .cta-buttons { flex-direction: column; align-items: center; gap: .75rem }
+    .cta-buttons .btn { width: 100%; max-width: 320px }
+
+    /* Mission quote */
+    .mission { padding: 2.5rem 0 }
+    .mission-quote { font-size: clamp(1.1rem, 3vw, 1.6rem) }
+
+    /* Footer */
+    .footer-links { gap: 1rem; font-size: .85rem }
+    .footer-logo { font-size: 1.2rem }
+    .footer-brand p { font-size: .82rem }
+    .footer-copy { font-size: .78rem }
+
+    /* Locations */
+    .cta-locations { flex-direction: column; gap: .3rem; font-size: .88rem }
     .cta-divider { display: none }
+
+    /* Waves */
+    .wave svg { height: 50px }
+
+    /* Addon */
+    .addon-inner { padding: 1rem 1.2rem }
+    .addon-inner h4 { font-size: .95rem }
+    .addon-inner p { font-size: .88rem }
 }
 
 @media (max-width: 480px) {
-    .hero-title { font-size: 3rem; font-weight: 600 }
-    .hero-subtitle { font-size: 1.1rem; font-weight: 500 }
+    html { font-size: 15px }
+    .container { padding: 0 1rem }
+
+    .hero { padding-top: 5.5rem }
+    .hero-title { font-size: clamp(2.2rem, 10vw, 3rem); font-weight: 600 }
+    .hero-subtitle { font-size: 1rem; font-weight: 500 }
+    .hero-tag { font-size: .8rem; letter-spacing: 2px }
+    .hero-content { margin-bottom: 1.5rem }
     
     .nav-inner {
         padding: .55rem 1rem;
@@ -1317,16 +1405,28 @@ section { padding: 5.5rem 0 }
         font-size: 1.2rem;
     }
 
-    .portals { flex-direction: column; align-items: center; gap: 1rem }
-    .portal { flex-direction: row; gap: 1rem }
-    .portal-circle { width: 60px; height: 60px }
-    .portal-emoji { font-size: 1.4rem }
+    .portals { flex-direction: column; align-items: center; gap: .8rem }
+    .portal { flex-direction: row; gap: .8rem }
+    .portal-circle { width: 56px; height: 56px }
+    .portal-emoji { font-size: 1.3rem }
+    .portal-label { font-size: .75rem }
 
     .preview-grid { grid-template-columns: 1fr }
     .contact-grid { grid-template-columns: 1fr }
+
+    .btn { padding: .7rem 1.4rem; font-size: .85rem }
+    .btn-hero { padding: .7rem 1.6rem; font-size: .85rem }
+
+    .about-preview-img { aspect-ratio: 1 / 1 }
+    .about-text-col .btn { width: 100%; margin-left: 0 !important; margin-bottom: .5rem }
 
     .addon-inner { flex-direction: column; text-align: center }
     .addon-price { margin-left: 0 }
 
     .step-header { flex-direction: column; align-items: flex-start; gap: .15rem }
+
+    /* Prevent any horizontal overflow */
+    .detail-block { border-radius: var(--radius); margin: 0 -.2rem }
+    .safety-note { font-size: .88rem }
+    .location-badge { font-size: .88rem }
 }
