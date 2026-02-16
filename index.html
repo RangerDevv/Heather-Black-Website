@@ -30,12 +30,84 @@
 
     <!-- ============ HERO ============ -->
     <header class="hero" id="hero">
-        <div class="hero-grain"></div>
-        <div class="hero-blobs">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
+        <!-- Animated background scene -->
+        <div class="hero-scene">
+            <!-- Soft floating particles -->
+            <div class="particles">
+                <div class="particle" style="--x:10%;--y:30%;--s:3px;--dur:12s;--delay:0s"></div>
+                <div class="particle" style="--x:20%;--y:65%;--s:2px;--dur:15s;--delay:2s"></div>
+                <div class="particle" style="--x:35%;--y:45%;--s:4px;--dur:10s;--delay:1s"></div>
+                <div class="particle" style="--x:50%;--y:25%;--s:2px;--dur:14s;--delay:3s"></div>
+                <div class="particle" style="--x:65%;--y:55%;--s:3px;--dur:11s;--delay:0.5s"></div>
+                <div class="particle" style="--x:78%;--y:35%;--s:2px;--dur:13s;--delay:4s"></div>
+                <div class="particle" style="--x:88%;--y:60%;--s:3px;--dur:16s;--delay:1.5s"></div>
+                <div class="particle" style="--x:45%;--y:70%;--s:2px;--dur:12s;--delay:5s"></div>
+                <div class="particle" style="--x:72%;--y:20%;--s:2px;--dur:14s;--delay:2.5s"></div>
+                <div class="particle" style="--x:30%;--y:80%;--s:3px;--dur:11s;--delay:3.5s"></div>
+                <div class="particle" style="--x:55%;--y:42%;--s:2px;--dur:13s;--delay:6s"></div>
+                <div class="particle" style="--x:82%;--y:75%;--s:4px;--dur:15s;--delay:1.8s"></div>
+            </div>
+
+            <!-- Layered landscape silhouettes -->
+            <svg class="hero-landscape" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="mistFade" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+                        <stop offset="100%" stop-color="#fff" stop-opacity="0.06"/>
+                    </linearGradient>
+                </defs>
+                <!-- Far mountains -->
+                <path class="mtn mtn-far" d="M0,320 C120,240 200,200 320,260 C440,300 500,180 640,220 C780,260 850,190 960,230 C1080,270 1200,200 1320,250 C1380,270 1440,240 1440,240 L1440,400 L0,400Z" fill="rgba(255,255,255,0.04)"/>
+                <!-- Mid hills -->
+                <path class="mtn mtn-mid" d="M0,340 C180,280 300,300 480,310 C600,316 700,270 840,290 C960,306 1080,280 1200,300 C1320,316 1400,290 1440,300 L1440,400 L0,400Z" fill="rgba(255,255,255,0.06)"/>
+                <!-- Mist layer -->
+                <rect x="0" y="280" width="1440" height="120" fill="url(#mistFade)" class="mist-drift"/>
+                <!-- Near ground -->
+                <path class="mtn mtn-near" d="M0,365 C200,345 400,355 600,350 C800,345 1000,360 1200,350 C1350,344 1440,355 1440,355 L1440,400 L0,400Z" fill="rgba(255,255,255,0.08)"/>
+            </svg>
+
+            <!-- Centered lotus/mandala glow -->
+            <div class="hero-lotus-wrap">
+                <svg class="hero-lotus" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="lotusGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#CCCCFF" stop-opacity="0.2"/>
+                            <stop offset="60%" stop-color="#CCCCFF" stop-opacity="0.06"/>
+                            <stop offset="100%" stop-color="#CCCCFF" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Soft aura -->
+                    <circle cx="100" cy="100" r="98" fill="url(#lotusGlow)" class="lotus-aura"/>
+                    <!-- Lotus petals — simple elegant strokes -->
+                    <g class="lotus-petals" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" transform="translate(100,100)">
+                        <!-- Top petal -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" class="petal p1"/>
+                        <!-- Top-right -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(45)" class="petal p2"/>
+                        <!-- Right -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(90)" class="petal p3"/>
+                        <!-- Bottom-right -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(135)" class="petal p4"/>
+                        <!-- Bottom -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(180)" class="petal p5"/>
+                        <!-- Bottom-left -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(225)" class="petal p6"/>
+                        <!-- Left -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(270)" class="petal p7"/>
+                        <!-- Top-left -->
+                        <path d="M0,-12 C-14,-48 -10,-70 0,-80 C10,-70 14,-48 0,-12Z" transform="rotate(315)" class="petal p8"/>
+                    </g>
+                    <!-- Inner ring -->
+                    <circle cx="100" cy="100" r="18" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8" class="lotus-ring ring-inner"/>
+                    <!-- Outer ring -->
+                    <circle cx="100" cy="100" r="45" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.6" class="lotus-ring ring-outer"/>
+                    <!-- Center dot -->
+                    <circle cx="100" cy="100" r="3" fill="rgba(255,253,208,0.3)" class="lotus-center"/>
+                </svg>
+            </div>
         </div>
+
+        <!-- Hero content overlay -->
         <div class="hero-content">
             <span class="hero-tag">Welcome to the practice of</span>
             <h1 class="hero-title">Heather Black</h1>
@@ -126,10 +198,7 @@
         <div class="container">
             <div class="about-preview-layout">
                 <div class="about-preview-photo reveal-item">
-                    <div class="photo-placeholder photo-placeholder-sm">
-                        <span>❋</span>
-                        <p>Heather Black</p>
-                    </div>
+                    <img src="./heatherBlackPic.jpg" alt="Heather Black" class="about-preview-img">
                 </div>
                 <div class="about-preview-text reveal-item">
                     <span class="section-eyebrow" style="text-align:left">My Journey</span>
